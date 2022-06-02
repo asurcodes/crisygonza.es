@@ -63,6 +63,21 @@
             padding: 1rem;
             border: 1px solid #FFF;
         }
+        #map {
+            color : #333;
+            box-sizing: initial;
+            width: 100%;
+            max-height: 500px;
+            aspect-ratio: 1.5 / 1;
+            margin: 0;
+        }
+        #map div {
+            margin: 0;
+        }
+        #map img {
+            max-width : none;
+        }
+
         @media only screen and (max-width: 1920px) {
             .container {
                 margin: .5rem;
@@ -79,7 +94,7 @@
     <div class="container">
         <img class="header" src="header.svg" alt="Cris & Gonza, nos casamos!">
     </div>
-    <div class="container">
+    <div class="container" id="above-fold">
         <div>
             <p class="title">Viernes, 16 de julio de 2022</p>
             <div id="countdown">
@@ -95,9 +110,120 @@
         <div>
             <p class="title">Castillo del Bosque de La Zoreda.</p>
             <p class="subtitle">s/n 33170 Oviedo, Asturias</p>
-            <a href="https://g.page/CastilloZoreda-Oviedo">Como llegar</a>
         </div>
     </div>
+
+    <div class="container" id="hosting">
+        <div class="image-right">
+            <div class="content">
+                <h3>Hotel Clarín</h3>
+                <p>Es un hotel muy céntrico, especialmente recomendado para las personas que venís de fuera y queréis aprovechar a conocer Oviedo. Está a unos minutos de diferentes puntos de interés: parque San Francisco, iglesia San Juan el Real, Gascona...</p>
+                <p><b>Web:</b> <a href="https://www.hotelclarin.es/">www.hotelclarin.es</a></p>
+                <p><b>Precio:</b> 55 € (habitación doble) por día</p>
+                <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
+                <p><b>Check-in:</b> 14:00 horas</p>
+                <p><b>Check-out:</b> 12:00 horas</p>
+                <p><b>Recepción:</b> de 07:00 a 23:00 horas. Si se llega fuera de esa hora, hay que avisar previamente</p>
+                <p><b>Parking:</b> al estar en calle peatonal, no tiene parking propio, pero tiene un acuerdo con el de Salesas que está muy cerca de 10 € al día.</p>
+                <p><b>¿Cómo reservar?</b></p>
+                <p>Llamar directamente al hotel <a href="tel:985209597">985 20 95 97</a> o mandar un mail al <a href="mailto:reservas@hotelclarin.es">reservas@hotelclarin.es</a></p>
+                <p>Como código de referencia hay que dar <b>BODA CRISTINA Y GONZALO</b>.</p>
+            </div>
+            <div class="image"></div>
+        </div>
+        <div class="image-left">
+            <div class="content">
+                <h3>Hotel Ayre Ramiro I</h3>
+                <p>El hotel se encuentra cerca del auditorio de Oviedo, a unos 5 minutos caminando del centro. Tiene zonas azules por la zona que permiten aparcar con facilidad.</p>
+                <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/">www.ayrehoteles.com</a></p>
+                <p><b>Precio:</b> 70-80 € (habitación doble) por día</p>
+                <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
+                <p><b>Check-in:</b> 14:00 horas</p>
+                <p><b>Check-out:</b> 12:00 horas</p>
+                <p><b>Recepción:</b> 24 horas</p>
+                <p><b>Parking:</b> sí, pero serían 11€ días. Al llegar al hotel dejar el coche delante de la recepción y al hacer el check-in os dan la plaza.</p>
+                <p><b>¿Cómo reservar?</b></p>
+                <p>A través de la web, correo electrónico <a href="mailto:ramiro@ayrehoteles.com">ramiro@ayrehoteles.com</a> o teléfono <a href="tel:985232850">985 23 28 50</a>. Indicad en la llamada que sería la <b>BODA CRISTINA Y GONZALO</b>.</p>
+            </div>
+            <div class="image"></div>
+        </div>
+        <div class="image-right">
+            <div class="content">
+                <h3>Hotel EXE Oviedo Centro</h3>
+                <p>Este hotel tiene también una gran ubicación, está muy cerca de las estaciones de Renfe y Bus. Al ser Oviedo tan pequeño, también está a unos minutos de las diferentes zonas de interés.</p>
+                <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html">www.eurostarshotels.com</a></p>
+                <p><b>Precio:</b> 101-120 € (habitación doble) por día</p>
+                <p><b>Política de cancelación:</b> depende de la opción escogida</p>
+                <p><b>Check-in:</b> 15:00 horas</p>
+                <p><b>Check-out:</b> 12:00 horas</p>
+                <p><b>Recepción:</b> 24 horas</p>
+                <p><b>Parking:</b> sí, tiene parking propio de 12€/día.</p>
+                <p><b>¿Cómo reservar?</b></p>
+                <p>A través de su página web tenéis que introducir el siguiente código: <b>BODACRISTINAYGONZALO</b> para que se os aplique un 15 % de descuento.</p>
+            </div>
+            <div class="image"></div>
+        </div>
+    </div>
+
+    <div class="container" id="itinerary">
+        <p>16:30 20/ 17:00 h.<br> Viaje a la Zoreda</p>
+        <p>18:00 h.<br> Ceremonia de unión</p>
+        <p>9:30 / 20:00 h.<br> Aperitivos</p>
+        <p>21:30 / 23:00 h.<br> Cena</p>
+        <p><b>¡Fiestón!</b></p>
+        <p>3:00 h.<br> Afina tu voz para, ¡el karaoke!</p>
+        <p>5:00 h.<br> Despedidas</p>
+    </div>
+
+
+    <div class="container" id="directions">
+        <h2>Cómo llegar</h2>
+        <div class="content">
+            <p>Puedes llegar en coche, aunque no lo recomendamos porque queremos que aproveches la barra libre de vino de la cena (y la fiesta de después). Así que, tienes las siguientes opciones:</p>
+            <p>Buses: estamos todavía cerrando los puntos de recogida y el horario exacto. Pero en cuanto tengamos novedades, te mandaremos un mensaje y lo dejaremos aquí indicado.</p>
+            <p>
+                <b>Taxis:</b><br>
+                Gijón: <a href="tel:985164444">985 16 44 44</a><br>
+                Oviedo: <a href="tel:985252500">985 25 25 00</a><br>
+            </p>
+            <a href="https://g.page/CastilloZoreda-Oviedo" target="_blank">Direcciones en Google Maps</a>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <div class="container" id="menu">
+        <div class="content">
+            <div class="menu">
+                Menú
+                APERITIVO
+                ¡A ponerse las botas!
+                Es el momento fuerte de la cena, ya que tendremos variedad de diferentes aperitivos junto con 3 rincones que no te puedes perder:·
+                Cortador de jamón.
+                Quesos asturianos.
+                Arroz de la tierra (pitu y setas).
+                CENA
+                Crema de cigalitas.
+                Chupito de cítricos al cointreau..
+                Solomillo al oporto con setas  del bosque.
+                POSTRE
+                ¡Wedding cake!
+            </div>
+            <div class="warning">
+                ¡Advertencia!
+                Alérgenos / Preferencias·
+                Como queremos que disfrutéis al máximo, todo el menú está garantizado para que sea 100 % celiaco.· También disponemos de un menú vegano, ¡recordad avisarnos de que   lo queréis!·  Cualquier otro tipo de alergia, avisadnos para decirlo a cocina.
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="menu">
+        <div class="content">
+            Lo más importante aquí es una cosa: ¡tu asistencia! Queremos que compartas este gran día y este súper fiestón.
+            Aunque, si quieres colaborar, nuestras madres y padres se han encargado de las toallas, sábanas, menaje y la decoración de casa. Pero los dos tenemos número de cuenta, Bizum y bolsillos para guardar cualquier ayudita.
+            <b>ES73 0182 4016 0802 0165 8557</b>
+        </div>
+    </div>
+
     <script>
         (function () {
             const second = 1000,
@@ -123,6 +249,55 @@
                 }
             }, 0)
         }());
+    </script>
+
+    <script async>
+        const script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBvIwLP-_i4MctPUk2NKFrjHgbmPGsyplI&callback=initMap&v=weekly';
+        script.async = true;
+        window.initMap = function() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 43.32431640330346, lng: -5.869772958099725 },
+                zoom: 15,
+                mapId: 'a8bbcfd6dae4f6af',
+                disableDefaultUI: true,
+                mapTypeControl: false,
+                scaleControl: true,
+                zoomControl: true,
+                zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.SMALL
+                },
+                streetViewControl: false,
+            });
+            const marker = new google.maps.Marker({
+                map: map,
+                position: { lat: 43.32431640330346, lng: -5.869772958099725 },
+                clickable: true,
+                title: "Castillo de la Zoreda",
+                icon: {
+                    path: 'M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z',
+                    anchor: new google.maps.Point(384/2,512),
+                    fillColor: "#333",
+                    fillOpacity: 1,
+                    strokeWeight: 1,
+                    strokeColor: "#333",
+                    scale: 0.08,
+                },
+            });
+            const contentString = '<strong>Castillo de la Zoreda</strong><p>A sólo 4 km de Oviedo, se alza el Hotel Castillo del Bosque la Zoreda, un rincón mágico en pleno corazón de la maravillosa campiña asturiana.<br /> <strong>El Hotel ocupa un emblemático palacete de principios del siglo XX</strong>, y en su  <strong>Restaurante la Zoreda</strong>, uno de los 5 mejores restaurantes de Oviedo, se puede degustar una selección de los platos más reconocidos de la cocina tradicional.</p>';
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+            marker.addListener("click", () => {
+                infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+            });
+        };
+
+        document.body.appendChild(script);
     </script>
 </body>
 </html>
