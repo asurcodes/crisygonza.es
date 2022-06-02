@@ -8,27 +8,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <script src="https://cdn.rawgit.com/mckamey/countdownjs/master/countdown.min.js" type="text/javascript"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200,600&display=swap" rel="stylesheet">
 
     <style>
         body {
             background-color: #130E24;
-            background-image: url("background.svg");
+            background-image: url("images/background.svg");
             font-family: 'Poppins', sans-serif;
             font-size: 1.25rem;
+            font-weight: 200;
             color: white;
             height: 100%;
-            width:100%;
+            width: 100%;
             margin: 0;
             padding: 0;
         }
         a {
             color: #c3c3c3;
         }
-        .stars {
-            z-index: -2;
-            position: absolute;
-            width: 100%;
+        b {
+            font-weight: 600;
+        }
+        p {
+            margin: 0.5rem;
         }
         .container {
             display: flex;
@@ -38,18 +40,32 @@
             padding: 1rem;
             max-width: 100%;
         }
-        .header,
-        .stars,
-        .castle {
+        .stars {
+            z-index: -2;
+            position: absolute;
+            width: 100%;
+        }
+
+        /* TITLE SECTION */
+        #title {
+            flex: 1;
+        }
+        #title .header {
             max-width: 100%;
         }
-        .castle {
+
+        /* ABOVE THE FOLD SECTION */
+        #above-fold {
+            flex: 1;
+        }
+        #above-fold .castle {
+            max-width: 800px;
             z-index: -1;
         }
-        .title {
+        #above-fold .title {
             font-weight: 200;
         }
-        .subtitle {
+        #above-fold .subtitle {
             font-weight: 100;
         }
         #countdown ul {
@@ -62,6 +78,55 @@
             width: 50px;
             padding: 1rem;
             border: 1px solid #FFF;
+        }
+
+        /* HOSTING SECTION */
+        #hosting {
+            display: flex;
+            flex-direction: column;
+        }
+        #hosting .list {
+            background-color: rgba(255, 255, 255, .15);
+        }
+        #hosting .image-left,
+        #hosting .image-right {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #hosting .image-right {
+            flex-direction: row;
+        }
+        #hosting .image-left {
+            flex-direction: row-reverse;
+        }
+        #hosting .content,
+        #hosting .image {
+            padding: 2rem;
+            width: 50%;
+        }
+        #hosting .content {
+            text-align: left;
+        }
+
+        /* ITINERARY SECTION */
+        #itinerary {
+            display: flex;
+            flex-direction: column;
+        }
+        #itinerary .rocket {
+            background-image: url("images/rocket.svg");
+        }
+
+        /* DIRECTIONS SECTION */
+        #directions {
+            display: flex;
+            flex-direction: column;
+        }
+        #directions .list {
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(255, 255, 255, .15);
         }
         #map {
             color : #333;
@@ -78,21 +143,56 @@
             max-width : none;
         }
 
-        @media only screen and (max-width: 1920px) {
+        /* MENU SECTION */
+        #menu {
+            display: flex;
+            flex-direction: column;
+            background-image: url("images/star-map.svg");
+        }
+        #menu .menu {
+            border-right: 1px solid #FFF;
+            border-left: 1px solid #FFF;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        #menu .warning {
+            border-width: 1px;
+            border-style: solid;
+            border-image: 
+                linear-gradient(
+                to bottom,
+                #FFF,
+                rgba(0, 0, 0, 0)
+                ) 1 100%;
+            margin: auto;
+        }
+
+        /* PRESENTS SECTION */
+        #presents {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #presents .list {
+            background-color: rgba(255, 255, 255, .15);
+        }
+
+        @media only screen and (max-width: 1280px) {
             .container {
                 margin: .5rem;
                 flex-direction: column;
             }
-            .container div{
+            .container div {
                 margin: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <img class="stars" src="stars.svg">
-    <div class="container">
-        <img class="header" src="header.svg" alt="Cris & Gonza, nos casamos!">
+    <img class="stars" src="images/stars.svg">
+    <div class="container" id="title">
+        <img class="header" src="images/header.svg" alt="Cris & Gonza, nos casamos!">
     </div>
     <div class="container" id="above-fold">
         <div>
@@ -106,7 +206,7 @@
                 </ul>
             </div>
         </div>
-        <img class="castle" src="castle.svg" alt="Castillo">
+        <img class="castle" src="images/castle.svg" alt="Castillo">
         <div>
             <p class="title">Castillo del Bosque de La Zoreda.</p>
             <p class="subtitle">s/n 33170 Oviedo, Asturias</p>
@@ -114,113 +214,127 @@
     </div>
 
     <div class="container" id="hosting">
-        <div class="image-right">
-            <div class="content">
-                <h3>Hotel Clarín</h3>
-                <p>Es un hotel muy céntrico, especialmente recomendado para las personas que venís de fuera y queréis aprovechar a conocer Oviedo. Está a unos minutos de diferentes puntos de interés: parque San Francisco, iglesia San Juan el Real, Gascona...</p>
-                <p><b>Web:</b> <a href="https://www.hotelclarin.es/">www.hotelclarin.es</a></p>
-                <p><b>Precio:</b> 55 € (habitación doble) por día</p>
-                <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
-                <p><b>Check-in:</b> 14:00 horas</p>
-                <p><b>Check-out:</b> 12:00 horas</p>
-                <p><b>Recepción:</b> de 07:00 a 23:00 horas. Si se llega fuera de esa hora, hay que avisar previamente</p>
-                <p><b>Parking:</b> al estar en calle peatonal, no tiene parking propio, pero tiene un acuerdo con el de Salesas que está muy cerca de 10 € al día.</p>
-                <p><b>¿Cómo reservar?</b></p>
-                <p>Llamar directamente al hotel <a href="tel:985209597">985 20 95 97</a> o mandar un mail al <a href="mailto:reservas@hotelclarin.es">reservas@hotelclarin.es</a></p>
-                <p>Como código de referencia hay que dar <b>BODA CRISTINA Y GONZALO</b>.</p>
+        <h2>Alojamiento</h2>
+        <div class="list">
+            <div class="image-right">
+                <div class="content">
+                    <h3>Hotel Clarín</h3>
+                    <p>Es un hotel muy céntrico, especialmente recomendado para las personas que venís de fuera y queréis aprovechar a conocer Oviedo. Está a unos minutos de diferentes puntos de interés: parque San Francisco, iglesia San Juan el Real, Gascona...</p>
+                    <p><b>Web:</b> <a href="https://www.hotelclarin.es/">www.hotelclarin.es</a></p>
+                    <p><b>Precio:</b> 55 € (habitación doble) por día</p>
+                    <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
+                    <p><b>Check-in:</b> 14:00 horas</p>
+                    <p><b>Check-out:</b> 12:00 horas</p>
+                    <p><b>Recepción:</b> de 07:00 a 23:00 horas. Si se llega fuera de esa hora, hay que avisar previamente</p>
+                    <p><b>Parking:</b> al estar en calle peatonal, no tiene parking propio, pero tiene un acuerdo con el de Salesas que está muy cerca de 10 € al día.</p>
+                    <p><b>¿Cómo reservar?</b></p>
+                    <p>Llamar directamente al hotel <a href="tel:985209597">985 20 95 97</a> o mandar un mail al <a href="mailto:reservas@hotelclarin.es">reservas@hotelclarin.es</a></p>
+                    <p>Como código de referencia hay que dar <b>BODA CRISTINA Y GONZALO</b>.</p>
+                </div>
+                <div class="image">
+                    <img src="images/hotel-clarin.jpg" alt="Hotel Clarín">
+                </div>
             </div>
-            <div class="image"></div>
-        </div>
-        <div class="image-left">
-            <div class="content">
-                <h3>Hotel Ayre Ramiro I</h3>
-                <p>El hotel se encuentra cerca del auditorio de Oviedo, a unos 5 minutos caminando del centro. Tiene zonas azules por la zona que permiten aparcar con facilidad.</p>
-                <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/">www.ayrehoteles.com</a></p>
-                <p><b>Precio:</b> 70-80 € (habitación doble) por día</p>
-                <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
-                <p><b>Check-in:</b> 14:00 horas</p>
-                <p><b>Check-out:</b> 12:00 horas</p>
-                <p><b>Recepción:</b> 24 horas</p>
-                <p><b>Parking:</b> sí, pero serían 11€ días. Al llegar al hotel dejar el coche delante de la recepción y al hacer el check-in os dan la plaza.</p>
-                <p><b>¿Cómo reservar?</b></p>
-                <p>A través de la web, correo electrónico <a href="mailto:ramiro@ayrehoteles.com">ramiro@ayrehoteles.com</a> o teléfono <a href="tel:985232850">985 23 28 50</a>. Indicad en la llamada que sería la <b>BODA CRISTINA Y GONZALO</b>.</p>
+            <div class="image-left">
+                <div class="content">
+                    <h3>Hotel Ayre Ramiro I</h3>
+                    <p>El hotel se encuentra cerca del auditorio de Oviedo, a unos 5 minutos caminando del centro. Tiene zonas azules por la zona que permiten aparcar con facilidad.</p>
+                    <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/">www.ayrehoteles.com</a></p>
+                    <p><b>Precio:</b> 70-80 € (habitación doble) por día</p>
+                    <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
+                    <p><b>Check-in:</b> 14:00 horas</p>
+                    <p><b>Check-out:</b> 12:00 horas</p>
+                    <p><b>Recepción:</b> 24 horas</p>
+                    <p><b>Parking:</b> sí, pero serían 11€ días. Al llegar al hotel dejar el coche delante de la recepción y al hacer el check-in os dan la plaza.</p>
+                    <p><b>¿Cómo reservar?</b></p>
+                    <p>A través de la web, correo electrónico <a href="mailto:ramiro@ayrehoteles.com">ramiro@ayrehoteles.com</a> o teléfono <a href="tel:985232850">985 23 28 50</a>. Indicad en la llamada que sería la <b>BODA CRISTINA Y GONZALO</b>.</p>
+                </div>
+                <div class="image">
+                    <img src="images/hotel-ayre-ramiro-i.jpg" alt="Hotel Ayre Ramiro I">
+                </div>
             </div>
-            <div class="image"></div>
-        </div>
-        <div class="image-right">
-            <div class="content">
-                <h3>Hotel EXE Oviedo Centro</h3>
-                <p>Este hotel tiene también una gran ubicación, está muy cerca de las estaciones de Renfe y Bus. Al ser Oviedo tan pequeño, también está a unos minutos de las diferentes zonas de interés.</p>
-                <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html">www.eurostarshotels.com</a></p>
-                <p><b>Precio:</b> 101-120 € (habitación doble) por día</p>
-                <p><b>Política de cancelación:</b> depende de la opción escogida</p>
-                <p><b>Check-in:</b> 15:00 horas</p>
-                <p><b>Check-out:</b> 12:00 horas</p>
-                <p><b>Recepción:</b> 24 horas</p>
-                <p><b>Parking:</b> sí, tiene parking propio de 12€/día.</p>
-                <p><b>¿Cómo reservar?</b></p>
-                <p>A través de su página web tenéis que introducir el siguiente código: <b>BODACRISTINAYGONZALO</b> para que se os aplique un 15 % de descuento.</p>
+            <div class="image-right">
+                <div class="content">
+                    <h3>Hotel EXE Oviedo Centro</h3>
+                    <p>Este hotel tiene también una gran ubicación, está muy cerca de las estaciones de Renfe y Bus. Al ser Oviedo tan pequeño, también está a unos minutos de las diferentes zonas de interés.</p>
+                    <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html">www.eurostarshotels.com</a></p>
+                    <p><b>Precio:</b> 101-120 € (habitación doble) por día</p>
+                    <p><b>Política de cancelación:</b> depende de la opción escogida</p>
+                    <p><b>Check-in:</b> 15:00 horas</p>
+                    <p><b>Check-out:</b> 12:00 horas</p>
+                    <p><b>Recepción:</b> 24 horas</p>
+                    <p><b>Parking:</b> sí, tiene parking propio de 12€/día.</p>
+                    <p><b>¿Cómo reservar?</b></p>
+                    <p>A través de su página web tenéis que introducir el siguiente código: <b>BODACRISTINAYGONZALO</b> para que se os aplique un 15 % de descuento.</p>
+                </div>
+                <div class="image">
+                    <img src="images/hotel-exe-oviedo-centro.jpg" alt="Hotel EXE Oviedo Centro">
+                </div>
             </div>
-            <div class="image"></div>
         </div>
     </div>
 
     <div class="container" id="itinerary">
-        <p>16:30 20/ 17:00 h.<br> Viaje a la Zoreda</p>
-        <p>18:00 h.<br> Ceremonia de unión</p>
-        <p>9:30 / 20:00 h.<br> Aperitivos</p>
-        <p>21:30 / 23:00 h.<br> Cena</p>
-        <p><b>¡Fiestón!</b></p>
-        <p>3:00 h.<br> Afina tu voz para, ¡el karaoke!</p>
-        <p>5:00 h.<br> Despedidas</p>
+        <h2>Itinerario</h2>
+        <div class="rocket">
+            <p>16:30 / 17:00 h.<br> Viaje a la Zoreda</p>
+            <p>18:00 h.<br> Ceremonia de unión</p>
+            <p>9:30 / 20:00 h.<br> Aperitivos</p>
+            <p>21:30 / 23:00 h.<br> Cena</p>
+            <p><b>¡Fiestón!</b></p>
+            <p>3:00 h.<br> Afina tu voz para, ¡el karaoke!</p>
+            <p>5:00 h.<br> Despedidas</p>
+        </div>
     </div>
-
 
     <div class="container" id="directions">
         <h2>Cómo llegar</h2>
-        <div class="content">
-            <p>Puedes llegar en coche, aunque no lo recomendamos porque queremos que aproveches la barra libre de vino de la cena (y la fiesta de después). Así que, tienes las siguientes opciones:</p>
-            <p>Buses: estamos todavía cerrando los puntos de recogida y el horario exacto. Pero en cuanto tengamos novedades, te mandaremos un mensaje y lo dejaremos aquí indicado.</p>
-            <p>
-                <b>Taxis:</b><br>
-                Gijón: <a href="tel:985164444">985 16 44 44</a><br>
-                Oviedo: <a href="tel:985252500">985 25 25 00</a><br>
-            </p>
-            <a href="https://g.page/CastilloZoreda-Oviedo" target="_blank">Direcciones en Google Maps</a>
+        <div class="list">
+            <div class="content">
+                <p>Puedes llegar en coche, aunque no lo recomendamos porque queremos que aproveches la barra libre de vino de la cena (y la fiesta de después). Así que, tienes las siguientes opciones:</p>
+                <p>Buses: estamos todavía cerrando los puntos de recogida y el horario exacto. Pero en cuanto tengamos novedades, te mandaremos un mensaje y lo dejaremos aquí indicado.</p>
+                <p>
+                    <b>Taxis:</b><br>
+                    Gijón: <a href="tel:985164444">985 16 44 44</a><br>
+                    Oviedo: <a href="tel:985252500">985 25 25 00</a><br>
+                </p>
+                <a href="https://g.page/CastilloZoreda-Oviedo" target="_blank">Direcciones en Google Maps</a>
+            </div>
+            <div id="map"></div>
         </div>
-        <div id="map"></div>
     </div>
 
     <div class="container" id="menu">
         <div class="content">
             <div class="menu">
-                Menú
-                APERITIVO
-                ¡A ponerse las botas!
-                Es el momento fuerte de la cena, ya que tendremos variedad de diferentes aperitivos junto con 3 rincones que no te puedes perder:·
-                Cortador de jamón.
-                Quesos asturianos.
-                Arroz de la tierra (pitu y setas).
-                CENA
-                Crema de cigalitas.
-                Chupito de cítricos al cointreau..
-                Solomillo al oporto con setas  del bosque.
-                POSTRE
-                ¡Wedding cake!
+                <p>MENÚ</p>
+                <p>APERITIVO</p>
+                <p>¡A ponerse las botas!</p>
+                <p>Es el momento fuerte de la cena, ya que tendremos variedad de diferentes aperitivos junto con 3 rincones que no te puedes perder:·</p>
+                <p>Cortador de jamón.</p>
+                <p>Quesos asturianos.</p>
+                <p>Arroz de la tierra (pitu y setas).</p>
+                <p>CENA</p>
+                <p>Crema de cigalitas.</p>
+                <p>Chupito de cítricos al cointreau.</p>
+                <p>Solomillo al oporto con setas del bosque.</p>
+                <p>POSTRE</p>
+                <p>¡Wedding cake!</p>
             </div>
             <div class="warning">
-                ¡Advertencia!
-                Alérgenos / Preferencias·
-                Como queremos que disfrutéis al máximo, todo el menú está garantizado para que sea 100 % celiaco.· También disponemos de un menú vegano, ¡recordad avisarnos de que   lo queréis!·  Cualquier otro tipo de alergia, avisadnos para decirlo a cocina.
+                <p>¡Advertencia!</p>
+                <p>Alérgenos / Preferencias·</p>
+                <p>Como queremos que disfrutéis al máximo, todo el menú está garantizado para que sea 100 % celiaco.· También disponemos de un menú vegano, ¡recordad avisarnos de que   lo queréis!·  Cualquier otro tipo de alergia, avisadnos para decirlo a cocina.</p>
             </div>
         </div>
     </div>
 
-    <div class="container" id="menu">
-        <div class="content">
-            Lo más importante aquí es una cosa: ¡tu asistencia! Queremos que compartas este gran día y este súper fiestón.
-            Aunque, si quieres colaborar, nuestras madres y padres se han encargado de las toallas, sábanas, menaje y la decoración de casa. Pero los dos tenemos número de cuenta, Bizum y bolsillos para guardar cualquier ayudita.
-            <b>ES73 0182 4016 0802 0165 8557</b>
+    <div class="container" id="presents">
+        <h2>REGALO DE BODAS</h2>
+        <div class="list">
+            <p>Lo más importante aquí es una cosa: ¡tu asistencia! Queremos que compartas este gran día y este súper fiestón.</p>
+            <p>Aunque, si quieres colaborar, nuestras madres y padres se han encargado de las toallas, sábanas, menaje y la decoración de casa. Pero los dos tenemos número de cuenta, Bizum y bolsillos para guardar cualquier ayudita.</p>
+            <p><b>ES73 0182 4016 0802 0165 8557</b></p>
         </div>
     </div>
 
@@ -234,15 +348,12 @@
             target = new Date("Jul 16, 2022 12:00:00").getTime(),
 
             x = setInterval(function() {
-
                 let now = new Date().getTime(),
                 distance = target - now;
-
                 document.getElementById("days").innerText = Math.floor(distance / (day)),
                 document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
                 document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
                 document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
                 // Do something later when date is reached
                 if (distance < 0) {
                     //
