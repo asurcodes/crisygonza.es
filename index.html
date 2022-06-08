@@ -14,6 +14,8 @@
         body {
             background-color: #130E24;
             background-image: url("images/background.svg");
+            background-repeat: repeat-y;
+            background-size: contain;
             font-family: 'Poppins', sans-serif;
             font-size: 1.25rem;
             font-weight: 200;
@@ -29,10 +31,14 @@
         b {
             font-weight: 600;
         }
-        p {
+        p, li {
+            margin: .5rem 0;
             font-weight: 100;
             font-size: 20px;
             line-height: 30px;
+        }
+        ul {
+            margin: 0;
         }
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
@@ -65,6 +71,12 @@
             width: 100%;
         }
 
+        @media only screen and (max-width: 1200px) {
+            .container {
+                padding: .5rem;
+            }
+        }
+
         /* ABOVE THE FOLD SECTION */
         #above-fold {
             display: flex;
@@ -74,14 +86,18 @@
         #above-fold .wrapper {
             display: flex;
             flex-direction: row;
+            justify-content: space-around;
+            max-width: 100%;
         }
-
+        #above-fold .wrapper > div {
+            margin: auto;
+        }
         #above-fold .header {
             max-width: 100%;
         }
-
         #above-fold .castle {
-            max-width: 800px;
+            width: 100%;
+            max-width: 700px;
             z-index: -1;
         }
         #above-fold .title {
@@ -90,8 +106,13 @@
         #above-fold .subtitle {
             font-weight: 100;
         }
+        #countdown {
+            display: flex;
+            flex-direction: column;
+        }
         #countdown ul {
             display: flex;
+            align-self: center;
             padding: 0;
             list-style-type: none;
         }
@@ -101,6 +122,14 @@
             padding: 1rem;
             border: 1px solid #FFF;
         }
+        @media only screen and (max-width: 1200px) {
+            #above-fold .wrapper {
+                flex-direction: column;
+            }
+            #above-fold .wrapper > div {
+                margin: 2rem 0;
+            }
+        }
 
         /* HOSTING SECTION */
         #hosting {
@@ -108,8 +137,11 @@
             flex-direction: column;
             margin: 4rem;
         }
+        #hosting p {
+            margin: .5rem 0;
+        }
         #hosting .wrapper {
-            background-color: rgba(255, 255, 255, .10);
+            background-color: rgba(255, 255, 255, .08);
             padding: 2rem;
         }
         #hosting .image-left,
@@ -117,6 +149,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+        #hosting .image-left img,
+        #hosting .image-right img{
+            width: 100%;
         }
         #hosting .image-right {
             flex-direction: row;
@@ -132,6 +168,20 @@
         }
         #hosting .content {
             text-align: left;
+        }
+        @media only screen and (max-width: 1200px) {
+            #hosting {
+                margin: .5rem;
+            }
+            #hosting .image-right,
+            #hosting .image-left {
+                flex-direction: column;
+            }
+            #hosting .content,
+            #hosting .image {
+                padding: .5rem;
+                width: 100%;
+            }
         }
 
         /* ITINERARY SECTION */
@@ -156,6 +206,16 @@
             font-size: 30px;
             line-height: 45px;
         }
+        @media only screen and (max-width: 1200px) {
+            #itinerary {
+                margin: .5rem;
+            }
+            #itinerary .rocket {
+                padding-top: 0;
+                height: 100%;
+                background-image: none;
+            }
+        }
 
         /* DIRECTIONS SECTION */
         #directions {
@@ -166,7 +226,7 @@
         #directions .wrapper {
             display: flex;
             flex-direction: row;
-            background-color: rgba(255, 255, 255, .10);
+            background-color: rgba(255, 255, 255, .08);
         }
         #directions .content {
             text-align: left;
@@ -187,6 +247,17 @@
         #map img {
             max-width : none;
         }
+        @media only screen and (max-width: 1200px) {
+            #directions {
+                margin: .5rem;
+            }
+            #directions .wrapper {
+                flex-direction: column;
+            }
+            #directions .content {
+                padding: 1rem;
+            }
+        }
 
         /* MENU SECTION */
         #menu {
@@ -196,6 +267,7 @@
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
+            margin: 2rem;
         }
         #menu .menu {
             max-width: 400px;
@@ -223,6 +295,12 @@
             margin: 2rem auto;
             border-bottom: rgba(255, 255, 255, 0);
         }
+        @media only screen and (max-width: 1200px) {
+            #menu {
+                margin: .5rem;
+                background-size: 1000px;
+            }
+        }
 
         /* PRESENTS SECTION */
         #presents {
@@ -230,19 +308,17 @@
             flex-direction: column;
             margin: 4rem;
         }
-
         #presents .wrapper {
-            background-color: rgba(255, 255, 255, .10);
+            background-color: rgba(255, 255, 255, .08);
             padding: 2rem;
         }
-
-        @media only screen and (max-width: 1280px) {
-            .container {
+        @media only screen and (max-width: 1200px) {
+            #presents {
                 margin: .5rem;
-                flex-direction: column;
+                background-size: 1000px;
             }
-            .container div {
-                margin: 1rem;
+            #presents .wrapper {
+                padding: 1rem;
             }
         }
     </style>
@@ -263,7 +339,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="castle" src="images/castle.svg" alt="Castillo">
+            <div><img class="castle" src="images/castle.svg" alt="Castillo"></div>
             <div>
                 <p class="title">Castillo del Bosque de La Zoreda.</p>
                 <p class="subtitle">s/n 33170 Oviedo, Asturias</p>
@@ -278,7 +354,7 @@
                 <div class="content">
                     <h3>Hotel Clarín</h3>
                     <p>Es un hotel muy céntrico, especialmente recomendado para las personas que venís de fuera y queréis aprovechar a conocer Oviedo. Está a unos minutos de diferentes puntos de interés: parque San Francisco, iglesia San Juan el Real, Gascona...</p>
-                    <p><b>Web:</b> <a href="https://www.hotelclarin.es/">www.hotelclarin.es</a></p>
+                    <p><b>Web:</b> <a href="https://www.hotelclarin.es/" target="_blank">www.hotelclarin.es</a></p>
                     <p><b>Precio:</b> 55 € (habitación doble) por día</p>
                     <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
                     <p><b>Check-in:</b> 14:00 horas</p>
@@ -290,14 +366,14 @@
                     <p>Como código de referencia hay que dar <b>BODA CRISTINA Y GONZALO</b>.</p>
                 </div>
                 <div class="image">
-                    <img src="images/hotel-clarin.jpg" alt="Hotel Clarín">
+                    <img src="images/hotel-clarin.webp" alt="Hotel Clarín">
                 </div>
             </div>
             <div class="image-left">
                 <div class="content">
                     <h3>Hotel Ayre Ramiro I</h3>
                     <p>El hotel se encuentra cerca del auditorio de Oviedo, a unos 5 minutos caminando del centro. Tiene zonas azules por la zona que permiten aparcar con facilidad.</p>
-                    <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/">www.ayrehoteles.com</a></p>
+                    <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/" target="_blank">www.ayrehoteles.com</a></p>
                     <p><b>Precio:</b> 70-80 € (habitación doble) por día</p>
                     <p><b>Política de cancelación:</b> hasta 24 horas antes de la llegada</p>
                     <p><b>Check-in:</b> 14:00 horas</p>
@@ -308,14 +384,14 @@
                     <p>A través de la web, correo electrónico <a href="mailto:ramiro@ayrehoteles.com">ramiro@ayrehoteles.com</a> o teléfono <a href="tel:985232850">985 23 28 50</a>. Indicad en la llamada que sería la <b>BODA CRISTINA Y GONZALO</b>.</p>
                 </div>
                 <div class="image">
-                    <img src="images/hotel-ayre-ramiro-i.jpg" alt="Hotel Ayre Ramiro I">
+                    <img src="images/hotel-ayre-ramiro-i.jpeg" alt="Hotel Ayre Ramiro I">
                 </div>
             </div>
             <div class="image-right">
                 <div class="content">
                     <h3>Hotel EXE Oviedo Centro</h3>
                     <p>Este hotel tiene también una gran ubicación, está muy cerca de las estaciones de Renfe y Bus. Al ser Oviedo tan pequeño, también está a unos minutos de las diferentes zonas de interés.</p>
-                    <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html">www.eurostarshotels.com</a></p>
+                    <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html" target="_blank">www.eurostarshotels.com</a></p>
                     <p><b>Precio:</b> 101-120 € (habitación doble) por día</p>
                     <p><b>Política de cancelación:</b> depende de la opción escogida</p>
                     <p><b>Check-in:</b> 15:00 horas</p>
@@ -326,7 +402,7 @@
                     <p>A través de su página web tenéis que introducir el siguiente código: <b>BODACRISTINAYGONZALO</b> para que se os aplique un 15 % de descuento.</p>
                 </div>
                 <div class="image">
-                    <img src="images/hotel-exe-oviedo-centro.jpg" alt="Hotel EXE Oviedo Centro">
+                    <img src="images/hotel-exe-oviedo-centro.jpeg" alt="Hotel EXE Oviedo Centro">
                 </div>
             </div>
         </div>
@@ -337,7 +413,7 @@
         <div class="rocket">
             <p>16:30 / 17:00 h.<br> Viaje a la Zoreda</p>
             <p>18:00 h.<br> Ceremonia de unión</p>
-            <p>9:30 / 20:00 h.<br> Aperitivos</p>
+            <p>19:30 / 20:00 h.<br> Aperitivos</p>
             <p>21:30 / 23:00 h.<br> Cena</p>
             <p><b>¡Fiestón!</b></p>
             <p>3:00 h.<br> Afina tu voz para, ¡el karaoke!</p>
@@ -350,13 +426,20 @@
         <div class="wrapper">
             <div class="content">
                 <p>Puedes llegar en coche, aunque no lo recomendamos porque queremos que aproveches la barra libre de vino de la cena (y la fiesta de después). Así que, tienes las siguientes opciones:</p>
-                <p>Buses: estamos todavía cerrando los puntos de recogida y el horario exacto. Pero en cuanto tengamos novedades, te mandaremos un mensaje y lo dejaremos aquí indicado.</p>
                 <p>
-                    <b>Taxis:</b><br>
-                    Gijón: <a href="tel:985164444">985 16 44 44</a><br>
-                    Oviedo: <a href="tel:985252500">985 25 25 00</a><br>
+                    <b>Buses:</b>
+                    <ul>
+                        <li>16:30 recogida en Gijón (Parque Begoña, Avenida de la Costa)</li>
+                        <li>17:00 recogida en Oviedo (Parque San Francisco)</li>
+                    </ul>
                 </p>
-                <a href="https://g.page/CastilloZoreda-Oviedo" target="_blank">Direcciones en Google Maps</a>
+                <p>
+                    <b>Taxis:</b>
+                    <ul>
+                        <li>Gijón: <a href="tel:985164444">985 16 44 44</a></li>
+                        <li>Oviedo: <a href="tel:985252500">985 25 25 00</a></li>
+                    </ul>
+                </p>
             </div>
             <div id="map"></div>
         </div>
@@ -368,7 +451,7 @@
                 <legend>MENÚ</legend>
                 <span class="horizontal-separator">APERITIVO</span>
                 <p>¡A ponerse las botas!</p>
-                <p>Es el momento fuerte de la cena, ya que tendremos variedad de diferentes aperitivos junto con 3 rincones que no te puedes perder:·</p>
+                <p>Es el momento fuerte de la cena, ya que tendremos variedad de diferentes aperitivos junto con 3 rincones que no te puedes perder:</p>
                 <p>Cortador de jamón.</p>
                 <p>Quesos asturianos.</p>
                 <p>Arroz de la tierra (pitu y setas).</p>
@@ -382,7 +465,7 @@
             <fieldset class="warning">
                 <legend>¡ADVERTENCIA!</legend>
                 <h4>ALÉRGENOS / PREFERENCIAS</h4>
-                <p>Como queremos que disfrutéis al máximo, todo el menú está garantizado para que sea 100 % celiaco.· También disponemos de un menú vegano, ¡recordad avisarnos de que   lo queréis!·  Cualquier otro tipo de alergia, avisadnos para decirlo a cocina.</p>
+                <p>Como queremos que disfrutéis al máximo, todo el menú está garantizado para que sea 100 % celiaco. También disponemos de un menú vegano, ¡recordad avisarnos de que lo queréis!  Cualquier otro tipo de alergia, avisadnos para decirlo a cocina.</p>
             </fieldset>
         </div>
     </div>
