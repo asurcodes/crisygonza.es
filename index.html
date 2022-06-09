@@ -44,18 +44,16 @@
             font-family: 'Poppins', sans-serif;
             font-style: normal;
             font-weight: 275;
+            text-transform: uppercase;
         }
         h2 {
             font-size: 48px;
-            line-height: 72px;
         }
         h3, legend {
             font-size: 36px;
-            line-height: 48px;
         }
         h4 {
             font-size: 24px;
-            line-height: 32px;
         }
         .container {
             display: flex;
@@ -97,7 +95,8 @@
         }
         #above-fold .castle {
             width: 100%;
-            max-width: 700px;
+            margin: 4rem 2rem;
+            max-width: 800px;
             z-index: -1;
         }
         #above-fold .title {
@@ -127,7 +126,10 @@
                 flex-direction: column;
             }
             #above-fold .wrapper > div {
-                margin: 2rem 0;
+                margin: 1rem 0;
+            }
+            #above-fold .castle {
+                margin: 1rem 0;
             }
         }
 
@@ -136,6 +138,10 @@
             display: flex;
             flex-direction: column;
             margin: 4rem;
+            background-image: url('images/Constelacion2.svg');
+            background-repeat: no-repeat;
+            background-position: 100% 25px;
+            background-size: 33%;
         }
         #hosting p {
             margin: .5rem 0;
@@ -144,6 +150,15 @@
             background-color: rgba(255, 255, 255, .08);
             padding: 2rem;
         }
+        #hosting .header {
+            display: flex;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: start;
+        }
+        #hosting .header.header-reverse{
+            justify-content: end;
+        }
         #hosting .image-left,
         #hosting .image-right {
             display: flex;
@@ -151,9 +166,10 @@
             justify-content: space-between;
         }
         #hosting .image-left img,
-        #hosting .image-right img{
+        #hosting .image-right img {
             width: 100%;
         }
+        #hosting .header
         #hosting .image-right {
             flex-direction: row;
         }
@@ -162,16 +178,46 @@
         }
         #hosting .content,
         #hosting .image {
-            align-items:center;
-            padding: 2rem;
+            align-items: center;
+            padding: 0 1rem;
             width: 50%;
         }
         #hosting .content {
             text-align: left;
         }
+        #hosting .title {
+            white-space: nowrap;
+        }
+        #hosting .constelation {
+            margin: 0 4rem;
+        }
+        #hosting .constelation img {
+            width: 100%;
+        }
         @media only screen and (max-width: 1200px) {
             #hosting {
                 margin: .5rem;
+            }
+            #hosting .wrapper {
+                padding: 1rem;
+            }
+            #hosting .header {
+                padding: .5rem;
+                flex-direction: column;
+            }
+            #hosting .header.header-reverse{
+                padding: .5rem;
+                flex-direction: column-reverse;
+            }
+            #hosting .title {
+                white-space: unset;
+            }
+            #hosting .constelation,
+            #hosting .title,
+            #hosting .image-right,
+            #hosting .image-left {
+                width: 100%;
+                margin: 0;
             }
             #hosting .image-right,
             #hosting .image-left {
@@ -189,6 +235,10 @@
             display: flex;
             flex-direction: column;
             margin: 2rem;
+            background-image: url('images/Constelacion3.svg');
+            background-repeat: no-repeat;
+            background-position: 0 100px;
+            background-size: 25%;
         }
         #itinerary .rocket {
             width: 100%;
@@ -200,6 +250,7 @@
             background-repeat: no-repeat;
             background-clip: padding-box;
             background-image: url("images/rocket.svg");
+            background-blend-mode: hue;
         }
         #itinerary .rocket p {
             margin: 0;
@@ -222,6 +273,10 @@
             display: flex;
             flex-direction: column;
             margin: 4rem;
+            background-image: url('images/Constelacion1.svg');
+            background-repeat: no-repeat;
+            background-position: 100% 0;
+            background-size: 25%;
         }
         #directions .wrapper {
             display: flex;
@@ -306,6 +361,10 @@
             display: flex;
             flex-direction: column;
             margin: 4rem;
+            background-image: url('images/Constelacion4.svg');
+            background-repeat: no-repeat;
+            background-position: 100% 50px;
+            background-size: 25%;
         }
         #presents .wrapper {
             background-color: rgba(255, 255, 255, .08);
@@ -314,7 +373,6 @@
         @media only screen and (max-width: 1200px) {
             #presents {
                 margin: .5rem;
-                background-size: 1000px;
             }
             #presents .wrapper {
                 padding: 1rem;
@@ -349,9 +407,12 @@
     <div class="container" id="hosting">
         <h2>Alojamiento</h2>
         <div class="wrapper">
+            <div class="header">
+                <div class="title"><h3>Hotel Clarín</h3></div>
+                <div class="constelation"><img src="images/Constelacion_Cuadrado_1.svg" alt=""></div>
+            </div>
             <div class="image-right">
                 <div class="content">
-                    <h3>Hotel Clarín</h3>
                     <p>Es un hotel muy céntrico, especialmente recomendado para las personas que venís de fuera y queréis aprovechar a conocer Oviedo. Está a unos minutos de diferentes puntos de interés: parque San Francisco, iglesia San Juan el Real, Gascona...</p>
                     <p><b>Web:</b> <a href="https://www.hotelclarin.es/" target="_blank">www.hotelclarin.es</a></p>
                     <p><b>Precio:</b> 55 € (habitación doble) por día</p>
@@ -368,9 +429,12 @@
                     <img src="images/hotel-clarin.webp" alt="Hotel Clarín">
                 </div>
             </div>
+            <div class="header header-reverse">
+                <div class="constelation"><img src="images/Constelacion_Cuadrado_2.svg" alt=""></div>
+                <div class="title"><h3>Hotel Ayre Ramiro I</h3></div>
+            </div>
             <div class="image-left">
                 <div class="content">
-                    <h3>Hotel Ayre Ramiro I</h3>
                     <p>El hotel se encuentra cerca del auditorio de Oviedo, a unos 5 minutos caminando del centro. Tiene zonas azules por la zona que permiten aparcar con facilidad.</p>
                     <p><b>Web:</b> <a href="https://www.ayrehoteles.com/hoteles/ayre-hotel-ramiro/" target="_blank">www.ayrehoteles.com</a></p>
                     <p><b>Precio:</b> 70-80 € (habitación doble) por día</p>
@@ -386,9 +450,12 @@
                     <img src="images/hotel-ayre-ramiro-i.jpeg" alt="Hotel Ayre Ramiro I">
                 </div>
             </div>
+            <div class="header">
+                <div class="title"><h3>Hotel EXE Oviedo Centro</h3></div>
+                <div class="constelation"><img src="images/Constelacion_Cuadrado_3.svg" alt=""></div>
+            </div>
             <div class="image-right">
                 <div class="content">
-                    <h3>Hotel EXE Oviedo Centro</h3>
                     <p>Este hotel tiene también una gran ubicación, está muy cerca de las estaciones de Renfe y Bus. Al ser Oviedo tan pequeño, también está a unos minutos de las diferentes zonas de interés.</p>
                     <p><b>Web:</b> <a href="https://www.eurostarshotels.com/exe-oviedo-centro.html" target="_blank">www.eurostarshotels.com</a></p>
                     <p><b>Precio:</b> 101-120 € (habitación doble) por día</p>
@@ -478,7 +545,7 @@
     </div>
 
     <div class="container" id="presents">
-        <h2>REGALO DE BODAS</h2>
+        <h2>Regalo de bodas</h2>
         <div class="wrapper">
             <p>Lo más importante aquí es una cosa: ¡tu asistencia! Queremos que compartas este gran día y este súper fiestón.</p>
             <p>Aunque, si quieres colaborar, nuestras madres y padres se han encargado de las toallas, sábanas, menaje y la decoración de casa. Pero los dos tenemos número de cuenta, Bizum y bolsillos para guardar cualquier ayudita.</p>
